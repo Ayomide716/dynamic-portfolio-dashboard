@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 
 const projects = [
   {
@@ -7,19 +10,29 @@ const projects = [
     description: "A beautiful web application built with React and TailwindCSS.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
     tags: ["React", "TailwindCSS", "TypeScript"],
+    slug: "project-one"
   },
   {
     title: "Project Two",
     description: "An elegant dashboard with real-time data visualization.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
     tags: ["Next.js", "Supabase", "Chart.js"],
+    slug: "project-two"
   },
   {
     title: "Project Three",
     description: "A mobile-first e-commerce platform with seamless UX.",
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
     tags: ["React Native", "Redux", "Node.js"],
+    slug: "project-three"
   },
+  {
+    title: "Project Four",
+    description: "An AI-powered content management system with advanced analytics.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    tags: ["AI/ML", "Python", "React"],
+    slug: "project-four"
+  }
 ];
 
 const Projects = () => {
@@ -64,6 +77,11 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
+                <Link to={`/projects/${project.slug}`} className="block mt-4">
+                  <Button className="w-full">
+                    View Project <ChevronRight className="ml-2" />
+                  </Button>
+                </Link>
               </div>
             </Card>
           </motion.div>
