@@ -44,7 +44,7 @@ const Background3D = () => {
 const Scene = () => {
   return (
     <Suspense fallback={null}>
-      <group>
+      <mesh>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <Stars 
@@ -63,7 +63,7 @@ const Scene = () => {
           autoRotate
           autoRotateSpeed={0.5}
         />
-      </group>
+      </mesh>
     </Suspense>
   );
 };
