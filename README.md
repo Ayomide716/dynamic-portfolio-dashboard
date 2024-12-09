@@ -30,30 +30,32 @@ Styling: Tailwind CSS
 
 Follow these simple steps to get your portfolio dashboard up and running:
 
-1. Clone the repository:
+```
+# 1. Clone the repository:
 
 git clone https://github.com/yourusername/portfolio-dashboard.git
 cd portfolio-dashboard
 
 
-2. Install dependencies:
+# 2. Install dependencies:
 
-```npm install```
-
-
-3. Start the development server:
-
-```npm run dev```
+npm install
 
 
-4. Build for production:
+# 3. Start the development server:
 
-```npm run build```
+npm run dev
 
 
-5. Preview the production build:
+# 4. Build for production:
 
-```npm run preview```
+npm run build
+
+
+# 5. Preview the production build:
+
+npm run preview
+```
 
 
 
