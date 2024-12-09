@@ -40,35 +40,31 @@ const Background3D = () => {
   );
 };
 
-// Separate Scene component to handle Three.js elements
 const Scene = () => {
   return (
     <Suspense fallback={null}>
-      <mesh>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <Stars 
-          radius={100}
-          depth={50}
-          count={5000}
-          factor={4}
-          saturation={0}
-          fade
-          speed={1}
-        />
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          enableRotate={true}
-          autoRotate
-          autoRotateSpeed={0.5}
-        />
-      </mesh>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1} />
+      <Stars 
+        radius={100}
+        depth={50}
+        count={5000}
+        factor={4}
+        saturation={0}
+        fade
+        speed={1}
+      />
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        enableRotate={true}
+        autoRotate
+        autoRotateSpeed={0.5}
+      />
     </Suspense>
   );
 };
 
-// Custom error boundary to handle Three.js errors gracefully
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { hasError: boolean }
