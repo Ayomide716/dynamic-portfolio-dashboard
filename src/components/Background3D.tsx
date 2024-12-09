@@ -1,24 +1,69 @@
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
+import React, { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
 
 const Background3D = () => {
   return (
-    <div className="fixed top-0 left-0 w-full h-full -z-10 opacity-70">
-      <Canvas>
-        <OrbitControls enableZoom={false} />
-        <ambientLight intensity={1} />
-        <directionalLight position={[3, 2, 1]} />
-        <Sphere args={[1, 100, 200]} scale={2.4}>
-          <MeshDistortMaterial
-            color="#8B5CF6"
-            attach="material"
-            distort={0.5}
-            speed={2}
-          />
-        </Sphere>
-      </Canvas>
+    <div className="fixed inset-0 -z-10">
+      <ErrorBoundary>
+        <Canvas
+          camera={{ position: [0, 0, 5] }}
+          style={{ background: "transparent" }}
+          dpr={[1, 2]}
+        >
+          <Suspense fallback={null}>
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[10, 10, 5]} intensity={1} />
+            <Stars 
+              radius={100}
+              depth={50}
+              count={5000}
+              factor={4}
+              saturation={0}
+              fade
+              speed={1}
+            />
+            <OrbitControls
+              enableZoom={false}
+              enablePan={false}
+              enableRotate={true}
+              autoRotate
+              autoRotateSpeed={0.5}
+            />
+          </Suspense>
+        </Canvas>
+      </ErrorBoundary>
     </div>
   );
 };
+
+// Custom error boundary to handle Three.js errors gracefully
+class ErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error) {
+    console.error("Three.js Error:", error);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="fixed inset-0 -z-10 bg-gradient-to-br from-background/50 to-background" />
+      );
+    }
+
+    return this.props.children;
+  }
+}
 
 export default Background3D;
