@@ -1,8 +1,15 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { useState } from "react";
 
 const projects = {
   "project-one": {
@@ -16,7 +23,8 @@ const projects = {
       "Modern UI components",
       "Type-safe development with TypeScript",
       "Performance optimized"
-    ]
+    ],
+    previewUrl: "https://react-tailwind-demo.vercel.app"
   },
   "project-two": {
     title: "Project Two",
@@ -29,7 +37,8 @@ const projects = {
       "Interactive charts and graphs",
       "User authentication",
       "Data export capabilities"
-    ]
+    ],
+    previewUrl: "https://nextjs-dashboard-demo.vercel.app"
   },
   "project-three": {
     title: "Project Three",
@@ -42,7 +51,8 @@ const projects = {
       "Secure payment integration",
       "Offline capability",
       "Push notifications"
-    ]
+    ],
+    previewUrl: "https://react-native-shop.vercel.app"
   },
   "project-four": {
     title: "Project Four",
@@ -55,12 +65,28 @@ const projects = {
       "Advanced analytics dashboard",
       "Content optimization suggestions",
       "Automated tagging system"
-    ]
+    ],
+    previewUrl: "https://ai-cms-demo.vercel.app"
+  },
+  "project-five": {
+    title: "Project Five",
+    description: "A modern social media platform with real-time messaging.",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "Firebase", "WebSocket"],
+    fullDescription: "A feature-rich social media platform with real-time messaging capabilities, built using React and Firebase.",
+    features: [
+      "Real-time messaging",
+      "User profiles and authentication",
+      "Media sharing",
+      "Push notifications"
+    ],
+    previewUrl: "https://social-media-demo.vercel.app"
   }
 };
 
 const ProjectPage = () => {
   const { slug } = useParams();
+  const [showPreview, setShowPreview] = useState(false);
   const project = projects[slug as keyof typeof projects];
 
   if (!project) {
@@ -95,7 +121,12 @@ const ProjectPage = () => {
           className="w-full h-[400px] object-cover rounded-lg mb-8"
         />
 
-        <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-4xl font-bold">{project.title}</h1>
+          <Button onClick={() => setShowPreview(true)}>
+            <Eye className="mr-2" /> Preview Project
+          </Button>
+        </div>
         
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.map((tag) => (
@@ -121,6 +152,19 @@ const ProjectPage = () => {
           ))}
         </ul>
       </motion.div>
+
+      <Dialog open={showPreview} onOpenChange={setShowPreview}>
+        <DialogContent className="max-w-6xl h-[80vh]">
+          <DialogHeader>
+            <DialogTitle>Project Preview - {project.title}</DialogTitle>
+          </DialogHeader>
+          <iframe
+            src={project.previewUrl}
+            className="w-full h-full border-none"
+            title={`${project.title} Preview`}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
