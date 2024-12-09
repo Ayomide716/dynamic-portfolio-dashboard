@@ -4,6 +4,7 @@ import { OrbitControls, Stars } from "@react-three/drei";
 
 const Background3D = () => {
   const [isWebGLAvailable, setIsWebGLAvailable] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // Check if WebGL is available
@@ -15,9 +16,10 @@ const Background3D = () => {
       setIsWebGLAvailable(false);
       console.error('WebGL not available:', e);
     }
+    setMounted(true);
   }, []);
 
-  if (!isWebGLAvailable) {
+  if (!mounted || !isWebGLAvailable) {
     return (
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-primary/20 to-purple-600/20 opacity-30" />
     );
@@ -27,7 +29,7 @@ const Background3D = () => {
     <div className="fixed inset-0 -z-10">
       <ErrorBoundary>
         <Canvas
-          camera={{ position: [0, 0, 5] }}
+          camera={{ position: [0, 0, 5], fov: 75 }}
           style={{ background: "transparent" }}
           dpr={Math.min(window.devicePixelRatio, 2)}
         >
@@ -42,24 +44,26 @@ const Background3D = () => {
 const Scene = () => {
   return (
     <Suspense fallback={null}>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <Stars 
-        radius={100}
-        depth={50}
-        count={5000}
-        factor={4}
-        saturation={0}
-        fade
-        speed={1}
-      />
-      <OrbitControls
-        enableZoom={false}
-        enablePan={false}
-        enableRotate={true}
-        autoRotate
-        autoRotateSpeed={0.5}
-      />
+      <mesh>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={1} />
+        <Stars 
+          radius={100}
+          depth={50}
+          count={5000}
+          factor={4}
+          saturation={0}
+          fade
+          speed={1}
+        />
+        <OrbitControls
+          enableZoom={false}
+          enablePan={false}
+          enableRotate={true}
+          autoRotate
+          autoRotateSpeed={0.5}
+        />
+      </mesh>
     </Suspense>
   );
 };
