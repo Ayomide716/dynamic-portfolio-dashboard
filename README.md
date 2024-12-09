@@ -1,4 +1,4 @@
-🌟 ##Dynamic Portfolio Dashboard
+## Dynamic Portfolio Dashboard
 
 Welcome to the **Dynamic Portfolio Dashboard**, a sleek and modern platform designed to showcase your skills, projects, and experiences in style. Built with blazing-fast Vite, this portfolio is optimized for performance and creativity, making it the perfect way to leave a lasting impression. 🚀
 
@@ -21,11 +21,9 @@ Built with Modern Tech: Incorporates the latest web technologies for optimal per
 
 Frontend: Vite, HTML5, CSS3, JavaScript (ES6+)
 
-Frameworks/Libraries: React or Vue (optional, depending on your choice)
+Frameworks/Libraries: React
 
-Styling: Tailwind CSS or SCSS
-
-Icons: Font Awesome / Hero Icons
+Styling: Tailwind CSS
 
 
 🚀 **Getting Started**
@@ -34,8 +32,8 @@ Follow these simple steps to get your portfolio dashboard up and running:
 
 1. Clone the repository:
 
-```git clone https://github.com/yourusername/portfolio-dashboard.git
-cd portfolio-dashboard```
+git clone https://github.com/yourusername/portfolio-dashboard.git
+cd portfolio-dashboard
 
 
 2. Install dependencies:
