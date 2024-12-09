@@ -30,7 +30,7 @@ Styling: Tailwind CSS
 
 Follow these simple steps to get your portfolio dashboard up and running:
 
-```
+```sh
 # 1. Clone the repository:
 
 git clone https://github.com/yourusername/portfolio-dashboard.git
