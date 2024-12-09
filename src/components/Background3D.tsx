@@ -44,26 +44,24 @@ const Background3D = () => {
 const Scene = () => {
   return (
     <Suspense fallback={null}>
-      <mesh>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <Stars 
-          radius={100}
-          depth={50}
-          count={5000}
-          factor={4}
-          saturation={0}
-          fade
-          speed={1}
-        />
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          enableRotate={true}
-          autoRotate
-          autoRotateSpeed={0.5}
-        />
-      </mesh>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1} />
+      <Stars 
+        radius={100}
+        depth={50}
+        count={5000}
+        factor={4}
+        saturation={0}
+        fade
+        speed={1}
+      />
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        enableRotate={true}
+        autoRotate
+        autoRotateSpeed={0.5}
+      />
     </Suspense>
   );
 };
