@@ -1,4 +1,4 @@
-🌟 ## Dynamic Portfolio Dashboard
+🌟 ##Dynamic Portfolio Dashboard
 
 Welcome to the **Dynamic Portfolio Dashboard**, a sleek and modern platform designed to showcase your skills, projects, and experiences in style. Built with blazing-fast Vite, this portfolio is optimized for performance and creativity, making it the perfect way to leave a lasting impression. 🚀
 
