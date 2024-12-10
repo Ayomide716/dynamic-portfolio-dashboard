@@ -48,7 +48,7 @@ const Index = () => {
           <div className="flex gap-4">
             <SocialLink href="https://github.com" icon={<Github size={20} />} />
             <SocialLink href="https://linkedin.com" icon={<Linkedin size={20} />} />
-            <SocialLink href="mailto: ayomidefamoyegun1@gmail.com" icon={<Mail size={20} />} />
+            <SocialLink href="mailto:ayomidefamoyegun1@gmail.com" icon={<Mail size={20} />} />
           </div>
         </div>
       </footer>
