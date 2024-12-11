@@ -10,8 +10,6 @@ Responsive Design: Looks stunning on desktops, tablets, and mobile devices.
 
 Lightning Fast: Powered by Vite for ultra-fast loading and development.
 
-Customizable Themes: Switch between light, dark, or custom themes effortlessly.
-
 Interactive Animations: Beautiful transitions and animations for a captivating user experience.
 
 Built with Modern Tech: Incorporates the latest web technologies for optimal performance.
@@ -74,10 +72,6 @@ Leverage libraries like GSAP or Framer Motion for advanced animations.
 
 
 
-🌐 **Live Demo**
-
-Check out the live demo here: Dynamic Portfolio Dashboard
-
 🤝 **Contribution**
 
 Contributions are welcome! If you have suggestions or want to improve this project, feel free to open an issue or create a pull request.
@@ -89,7 +83,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ---
 
-💻 Made with ❤️ by Famoyegun Ayomide 
+💻 Made by Famoyegun Ayomide 
 Connect with me on LinkedIn | Twitter | GitHub
 
 
