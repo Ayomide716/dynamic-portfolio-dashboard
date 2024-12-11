@@ -31,7 +31,7 @@ Follow these simple steps to get your portfolio dashboard up and running:
 ```sh
 # 1. Clone the repository:
 
-git clone https://github.com/yourusername/portfolio-dashboard.git
+git clone https://github.com/Ayomide716/dynamic-portfolio-dashboard.git
 cd portfolio-dashboard
 
 
