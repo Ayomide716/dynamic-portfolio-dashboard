@@ -68,7 +68,7 @@ const Contact = () => {
         <p className="text-muted-foreground">
           Prefer email? Reach out directly at{" "}
           <a
-            href="mailto:hello@example.com"
+            href="mailto:ayomidefamoyegun1@gmail.com"
             className="text-foreground hover:underline"
           >
             hello@example.com
