@@ -33,7 +33,7 @@ const Hero = () => {
         >
           <TypeAnimation
             sequence={[
-              'Creating Digital Experiences',
+              'Creating Digital Experience',
               2000,
               'Building Amazing Apps',
               2000,
