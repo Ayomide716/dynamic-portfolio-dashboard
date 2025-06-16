@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const BlogSection = () => {
   const blogPosts = [
@@ -13,7 +14,8 @@ const BlogSection = () => {
       date: "2024-01-15",
       readTime: "8 min read",
       category: "React",
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
+      slug: "building-scalable-react-applications"
     },
     {
       id: 2,
@@ -22,7 +24,8 @@ const BlogSection = () => {
       date: "2024-01-10",
       readTime: "6 min read",
       category: "Web Dev",
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
+      slug: "future-of-web-development"
     },
     {
       id: 3,
@@ -31,7 +34,8 @@ const BlogSection = () => {
       date: "2024-01-05",
       readTime: "10 min read",
       category: "Performance",
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
+      slug: "optimizing-performance-modern-apps"
     }
   ];
 
@@ -79,9 +83,11 @@ const BlogSection = () => {
                   <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
                     {post.category}
                   </span>
-                  <Button variant="ghost" size="sm" className="group-hover:text-primary">
-                    Read More <ArrowRight size={16} className="ml-1" />
-                  </Button>
+                  <Link to={`/blog/${post.slug}`}>
+                    <Button variant="ghost" size="sm" className="group-hover:text-primary">
+                      Read More <ArrowRight size={16} className="ml-1" />
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             </motion.div>
