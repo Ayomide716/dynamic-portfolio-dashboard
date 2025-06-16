@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import EnhancedProjects from "@/components/EnhancedProjects";
 import InteractiveSkills from "@/components/InteractiveSkills";
@@ -12,8 +13,47 @@ import ScrollProgress from "@/components/ScrollProgress";
 import AnimatedParticles from "@/components/AnimatedParticles";
 import FloatingElements from "@/components/FloatingElements";
 import StatsSection from "@/components/StatsSection";
+import ModernNav from "@/components/ModernNav";
+import BlogSection from "@/components/BlogSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 const Index = () => {
+  // SEO and Performance optimizations
+  useEffect(() => {
+    // Set meta description for better SEO
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 
+        'Ayomide Famoyegun - Professional Frontend Developer specializing in React, TypeScript, and modern web technologies. View my portfolio, projects, and get in touch for your next project.'
+      );
+    }
+
+    // Add structured data for better search visibility
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ayomide Famoyegun",
+      "jobTitle": "Frontend Developer",
+      "description": "Professional Frontend Developer specializing in React, TypeScript, and modern web technologies",
+      "url": window.location.origin,
+      "sameAs": [
+        "https://github.com/Ayomide716",
+        "https://linkedin.com/in/ayomide-famoyegun"
+      ],
+      "knowsAbout": ["React", "TypeScript", "JavaScript", "Frontend Development", "Web Development"],
+      "email": "ayomidefamoyegun1@gmail.com"
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen relative">
       <ScrollProgress />
@@ -21,36 +61,22 @@ const Index = () => {
       <AnimatedParticles />
       <FloatingElements />
       
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-lg border-b border-slate-100/20">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-xl font-semibold"
-          >
-            Portfolio
-          </motion.div>
-          <div className="flex gap-6">
-            <NavLink href="#projects">Projects</NavLink>
-            <NavLink href="#skills">Skills</NavLink>
-            <NavLink href="#contact">Contact</NavLink>
-          </div>
-        </div>
-      </nav>
+      <ModernNav />
 
       <main className="container mx-auto px-4 pt-24 relative z-10">
         <Hero />
         <StatsSection />
         <EnhancedProjects />
         <InteractiveSkills />
+        <BlogSection />
+        <TestimonialsSection />
         <Contact />
       </main>
 
       <footer className="mt-20 py-8 border-t border-slate-100/20 relative z-10">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 Portfolio. All rights reserved.
+            © 2024 Ayomide Famoyegun. All rights reserved.
           </p>
           <div className="flex gap-4">
             <SocialLink href="https://github.com/Ayomide716" icon={<Github size={20} />} />
@@ -62,17 +88,6 @@ const Index = () => {
     </div>
   );
 };
-
-const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <motion.a
-    href={href}
-    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    {children}
-  </motion.a>
-);
 
 const SocialLink = ({ href, icon }: { href: string; icon: React.ReactNode }) => (
   <motion.a

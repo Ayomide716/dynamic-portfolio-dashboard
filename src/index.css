@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -71,6 +70,31 @@
   .preserve-3d {
     transform-style: preserve-3d;
   }
+
+  /* Performance optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Lazy loading optimizations */
+  .lazy-load {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .lazy-load.loaded {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-in {
@@ -114,4 +138,36 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary) / 0.8);
+}
+
+/* Performance improvements */
+* {
+  box-sizing: border-box;
+}
+
+/* Optimize fonts */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Critical CSS inlining for above-the-fold content */
+.critical-content {
+  contain: layout style paint;
 }
