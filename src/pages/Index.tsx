@@ -1,19 +1,25 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
+import EnhancedProjects from "@/components/EnhancedProjects";
+import InteractiveSkills from "@/components/InteractiveSkills";
 import Contact from "@/components/Contact";
 import Background3D from "@/components/Background3D";
 import ScrollProgress from "@/components/ScrollProgress";
+import AnimatedParticles from "@/components/AnimatedParticles";
+import FloatingElements from "@/components/FloatingElements";
+import StatsSection from "@/components/StatsSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       <ScrollProgress />
       <Background3D />
+      <AnimatedParticles />
+      <FloatingElements />
       
       <nav className="fixed top-0 w-full z-50 backdrop-blur-lg border-b border-slate-100/20">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -35,8 +41,9 @@ const Index = () => {
 
       <main className="container mx-auto px-4 pt-24 relative z-10">
         <Hero />
-        <Projects />
-        <Skills />
+        <StatsSection />
+        <EnhancedProjects />
+        <InteractiveSkills />
         <Contact />
       </main>
 
