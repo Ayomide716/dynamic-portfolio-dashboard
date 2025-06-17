@@ -81,6 +81,51 @@ const projects = {
       "Push notifications"
     ],
     previewUrl: "https://social-media-demo.vercel.app"
+  },
+  "ecommerce-platform": {
+    title: "E-Commerce Platform",
+    description: "A full-stack e-commerce solution with modern UI and seamless payment integration.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "Node.js", "MongoDB", "Stripe"],
+    fullDescription: "A comprehensive e-commerce platform featuring product catalog management, shopping cart functionality, secure payment processing, and order management. Built with modern web technologies for optimal performance and user experience.",
+    features: [
+      "Product catalog with search and filtering",
+      "Secure payment integration with Stripe",
+      "User authentication and profile management",
+      "Order tracking and management",
+      "Responsive design for all devices"
+    ],
+    previewUrl: "https://ecommerce-demo.vercel.app"
+  },
+  "analytics-dashboard": {
+    title: "Analytics Dashboard",
+    description: "Real-time analytics dashboard with interactive charts and data visualization.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    tags: ["Vue.js", "D3.js", "Python", "PostgreSQL"],
+    fullDescription: "A powerful analytics dashboard that provides real-time insights through interactive charts and data visualizations. Features advanced filtering, custom date ranges, and exportable reports.",
+    features: [
+      "Real-time data updates and monitoring",
+      "Interactive charts with D3.js",
+      "Custom date range filtering",
+      "Export functionality for reports",
+      "Multi-user access control"
+    ],
+    previewUrl: "https://analytics-dashboard-demo.vercel.app"
+  },
+  "mobile-banking": {
+    title: "Mobile Banking App",
+    description: "Secure mobile banking application with biometric authentication and real-time transactions.",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
+    tags: ["React Native", "Firebase", "Node.js", "JWT"],
+    fullDescription: "A secure mobile banking application featuring biometric authentication, real-time transaction processing, and comprehensive account management. Built with React Native for cross-platform compatibility.",
+    features: [
+      "Biometric authentication (fingerprint/face)",
+      "Real-time transaction processing",
+      "Account balance and history",
+      "Money transfer and bill payments",
+      "Push notifications for transactions"
+    ],
+    previewUrl: "https://mobile-banking-demo.vercel.app"
   }
 };
 

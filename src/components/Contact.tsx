@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -71,7 +72,7 @@ const Contact = () => {
             href="mailto:ayomidefamoyegun1@gmail.com"
             className="text-foreground hover:underline"
           >
-            hello@example.com
+            ayomidefamoyegun1@gmail.com
           </a>
         </p>
       </motion.div>
