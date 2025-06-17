@@ -14,7 +14,7 @@ const BlogSection = () => {
       date: "2024-01-15",
       readTime: "8 min read",
       category: "React",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
       slug: "building-scalable-react-applications"
     },
     {
@@ -24,7 +24,7 @@ const BlogSection = () => {
       date: "2024-01-10",
       readTime: "6 min read",
       category: "Web Dev",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
       slug: "future-of-web-development"
     },
     {
@@ -34,16 +34,13 @@ const BlogSection = () => {
       date: "2024-01-05",
       readTime: "10 min read",
       category: "Performance",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
       slug: "optimizing-performance-modern-apps"
     }
   ];
 
-  const scrollToBlog = () => {
-    const blogSection = document.getElementById('blog');
-    if (blogSection) {
-      blogSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -72,7 +69,13 @@ const BlogSection = () => {
               viewport={{ once: true }}
             >
               <Card className="h-full hover:shadow-lg transition-shadow duration-300 group">
-                <div className="aspect-video bg-gradient-to-br from-primary/20 to-blue-600/20 rounded-t-lg"></div>
+                <div className="aspect-video bg-gradient-to-br from-primary/20 to-blue-600/20 rounded-t-lg overflow-hidden">
+                  <img 
+                    src={post.image} 
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <CardHeader>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                     <Calendar size={16} />
@@ -105,7 +108,7 @@ const BlogSection = () => {
           <Button 
             variant="outline" 
             size="lg" 
-            onClick={scrollToBlog}
+            onClick={scrollToTop}
             className="hover:bg-primary hover:text-primary-foreground transition-colors"
           >
             View All Posts

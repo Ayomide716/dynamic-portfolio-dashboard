@@ -75,7 +75,13 @@ const BlogPost = ({ post }: BlogPostProps) => {
             </div>
 
             <Card className="mb-8">
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-blue-600/20"></div>
+              <div className="aspect-video overflow-hidden rounded-t-lg">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </Card>
 
             <Card>

@@ -1,6 +1,8 @@
 
 import { useParams } from "react-router-dom";
 import BlogPost from "@/components/BlogPost";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -13,7 +15,7 @@ const BlogPostPage = () => {
       date: "2024-01-15",
       readTime: "8 min read",
       category: "React",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
       author: "Ayomide Famoyegun",
       content: `
         <h2>Introduction</h2>
@@ -80,7 +82,7 @@ const BlogPostPage = () => {
       date: "2024-01-10",
       readTime: "6 min read",
       category: "Web Dev",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
       author: "Ayomide Famoyegun",
       content: `
         <h2>Introduction</h2>
@@ -145,7 +147,7 @@ const BlogPostPage = () => {
       date: "2024-01-05",
       readTime: "10 min read",
       category: "Performance",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
       author: "Ayomide Famoyegun",
       content: `
         <h2>Introduction</h2>
@@ -248,6 +250,11 @@ const BlogPostPage = () => {
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Blog Post Not Found</h1>
           <p className="text-muted-foreground">The blog post you're looking for doesn't exist.</p>
+          <Link to="/#blog">
+            <Button variant="outline" className="mt-4">
+              Back to Blog
+            </Button>
+          </Link>
         </div>
       </div>
     );
