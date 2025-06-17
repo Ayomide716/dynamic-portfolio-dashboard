@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -104,16 +103,7 @@ const BlogSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button 
-            variant="outline" 
-            size="lg" 
-            onClick={scrollToTop}
-            className="hover:bg-primary hover:text-primary-foreground transition-colors"
-          >
-            View All Posts
-          </Button>
-        </div>
+        {/* Removed the View All Posts button since it was non-functional */}
       </div>
     </section>
   );

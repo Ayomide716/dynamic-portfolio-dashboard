@@ -143,20 +143,20 @@ const EnhancedProjects = () => {
         ))}
       </div>
 
-      {/* Enhanced Project Gallery Dialog */}
+      {/* Enhanced Project Gallery Dialog with proper scrolling */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-4xl h-[80vh]">
+        <DialogContent className="max-w-4xl max-h-[90vh] flex flex-col">
           <DialogHeader>
             <DialogTitle>{selectedProject?.title} - Gallery</DialogTitle>
           </DialogHeader>
           {selectedProject && (
-            <div className="flex flex-col h-full">
-              <div className="flex-1 relative">
+            <div className="flex flex-col min-h-0 flex-1">
+              <div className="flex-shrink-0 relative mb-4">
                 <motion.img
                   key={currentImageIndex}
                   src={selectedProject.images[currentImageIndex]}
                   alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-[400px] object-cover rounded-lg"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3 }}
@@ -175,13 +175,13 @@ const EnhancedProjects = () => {
                   ))}
                 </div>
               </div>
-              <div className="flex gap-2 mt-4 overflow-x-auto">
+              <div className="flex gap-2 overflow-x-auto pb-2">
                 {selectedProject.images.map((image, index) => (
                   <motion.img
                     key={index}
                     src={image}
                     alt={`Thumbnail ${index + 1}`}
-                    className={`w-20 h-20 object-cover rounded cursor-pointer border-2 transition-all ${
+                    className={`w-20 h-20 flex-shrink-0 object-cover rounded cursor-pointer border-2 transition-all ${
                       index === currentImageIndex ? 'border-primary' : 'border-transparent'
                     }`}
                     onClick={() => setCurrentImageIndex(index)}
