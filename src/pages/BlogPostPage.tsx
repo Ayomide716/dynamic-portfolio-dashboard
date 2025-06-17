@@ -1,9 +1,9 @@
-import { useParams, Link } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
 import BlogPost from "@/components/BlogPost";
-import { Button } from "@/components/ui/button";
 
 const BlogPostPage = () => {
-  const { slug } = useParams();
+  const { slug } = useParams<{ slug: string }>();
 
   const blogPosts = {
     "building-scalable-react-applications": {
@@ -17,48 +17,60 @@ const BlogPostPage = () => {
       author: "Ayomide Famoyegun",
       content: `
         <h2>Introduction</h2>
-        <p>Building scalable React applications requires careful planning, proper architecture, and adherence to best practices. In this comprehensive guide, we'll explore the key strategies and patterns that will help you create maintainable and scalable React applications.</p>
+        <p>Building scalable React applications requires careful planning, proper architecture, and adherence to best practices. In this comprehensive guide, we'll explore the essential strategies and patterns that will help you create maintainable and robust React applications.</p>
         
         <h2>Project Structure</h2>
-        <p>A well-organized project structure is the foundation of any scalable application. Here's a recommended structure:</p>
-        <pre><code>src/
-  components/
-    ui/
-    common/
-    feature-specific/
-  pages/
-  hooks/
-  utils/
-  types/
-  store/
-  styles/</code></pre>
-        
-        <h2>Component Architecture</h2>
-        <p>When building components for large applications, consider these principles:</p>
+        <p>A well-organized project structure is the foundation of any scalable application. Here's a recommended folder structure:</p>
         <ul>
-          <li><strong>Single Responsibility:</strong> Each component should have one clear purpose</li>
-          <li><strong>Composition over Inheritance:</strong> Use composition to build complex UIs</li>
-          <li><strong>Props Interface:</strong> Define clear TypeScript interfaces for all props</li>
-          <li><strong>Error Boundaries:</strong> Implement error boundaries to handle failures gracefully</li>
+          <li><strong>src/components</strong> - Reusable UI components</li>
+          <li><strong>src/pages</strong> - Route-level components</li>
+          <li><strong>src/hooks</strong> - Custom React hooks</li>
+          <li><strong>src/utils</strong> - Utility functions</li>
+          <li><strong>src/services</strong> - API calls and external services</li>
+          <li><strong>src/types</strong> - TypeScript type definitions</li>
+        </ul>
+        
+        <h2>Component Design Patterns</h2>
+        <h3>Composition over Inheritance</h3>
+        <p>React favors composition over inheritance. Design your components to be composable and reusable by accepting children and using render props or compound component patterns.</p>
+        
+        <h3>Container and Presentational Components</h3>
+        <p>Separate your components into two categories:</p>
+        <ul>
+          <li><strong>Container Components</strong> - Handle logic and state management</li>
+          <li><strong>Presentational Components</strong> - Focus on how things look</li>
         </ul>
         
         <h2>State Management</h2>
-        <p>For large applications, consider using state management solutions like Redux Toolkit, Zustand, or React Query for server state. Keep local state minimal and lift state up only when necessary.</p>
+        <p>For large applications, consider these state management approaches:</p>
+        <ul>
+          <li><strong>React Context</strong> - For global state that doesn't change frequently</li>
+          <li><strong>React Query</strong> - For server state management</li>
+          <li><strong>Zustand or Redux Toolkit</strong> - For complex client state</li>
+        </ul>
+        
+        <h2>TypeScript Integration</h2>
+        <p>TypeScript provides excellent developer experience and catches errors at compile time. Define clear interfaces for your props and state:</p>
+        <p>Always type your component props, state, and API responses to catch errors early and improve code documentation.</p>
         
         <h2>Performance Optimization</h2>
-        <p>Key performance considerations include:</p>
         <ul>
-          <li>Code splitting with React.lazy() and Suspense</li>
-          <li>Memoization with React.memo, useMemo, and useCallback</li>
-          <li>Virtual scrolling for large lists</li>
-          <li>Image optimization and lazy loading</li>
+          <li>Use React.memo for expensive components</li>
+          <li>Implement code splitting with React.lazy</li>
+          <li>Optimize bundle size with tree shaking</li>
+          <li>Use useMemo and useCallback judiciously</li>
         </ul>
         
         <h2>Testing Strategy</h2>
-        <p>Implement a comprehensive testing strategy with unit tests, integration tests, and end-to-end tests. Use tools like Jest, React Testing Library, and Cypress.</p>
+        <p>Implement a comprehensive testing strategy:</p>
+        <ul>
+          <li><strong>Unit Tests</strong> - Test individual components and functions</li>
+          <li><strong>Integration Tests</strong> - Test component interactions</li>
+          <li><strong>E2E Tests</strong> - Test complete user workflows</li>
+        </ul>
         
         <h2>Conclusion</h2>
-        <p>Building scalable React applications is a journey that requires continuous learning and adaptation. By following these best practices and staying updated with the latest developments in the React ecosystem, you'll be well-equipped to handle projects of any size.</p>
+        <p>Building scalable React applications is an ongoing process that requires continuous learning and adaptation. By following these best practices and staying updated with the React ecosystem, you'll be well-equipped to handle projects of any size.</p>
       `
     },
     "future-of-web-development": {
@@ -71,37 +83,59 @@ const BlogPostPage = () => {
       image: "/placeholder.svg",
       author: "Ayomide Famoyegun",
       content: `
-        <h2>The Evolving Landscape</h2>
-        <p>Web development is experiencing rapid transformation. From AI-powered tools to new frameworks and paradigms, the future holds exciting possibilities for developers and users alike.</p>
+        <h2>Introduction</h2>
+        <p>The web development landscape is evolving rapidly, with new technologies and paradigms emerging constantly. Let's explore the trends that are shaping the future of web development.</p>
         
-        <h2>AI Integration</h2>
-        <p>Artificial Intelligence is revolutionizing how we build and interact with web applications:</p>
+        <h2>AI-Powered Development</h2>
+        <p>Artificial Intelligence is revolutionizing how we build web applications:</p>
         <ul>
-          <li><strong>Code Generation:</strong> AI tools like GitHub Copilot are changing how we write code</li>
-          <li><strong>Personalization:</strong> AI-driven user experiences and content recommendations</li>
-          <li><strong>Accessibility:</strong> AI-powered accessibility tools and automatic alt-text generation</li>
-          <li><strong>Testing:</strong> Automated testing and bug detection using machine learning</li>
+          <li><strong>Code Generation</strong> - AI assistants helping write boilerplate code</li>
+          <li><strong>Automated Testing</strong> - AI-powered test generation and maintenance</li>
+          <li><strong>Design to Code</strong> - Converting designs directly to functional code</li>
+          <li><strong>Performance Optimization</strong> - AI analyzing and optimizing application performance</li>
         </ul>
         
-        <h2>New Frameworks and Tools</h2>
-        <p>The web development ecosystem continues to evolve with new frameworks and tools:</p>
+        <h2>Edge Computing and CDNs</h2>
+        <p>The move towards edge computing is transforming web performance:</p>
         <ul>
-          <li><strong>Meta-frameworks:</strong> Next.js, Remix, and SvelteKit offering full-stack solutions</li>
-          <li><strong>Build Tools:</strong> Vite, esbuild, and swc providing faster build times</li>
-          <li><strong>Styling:</strong> CSS-in-JS evolution and utility-first frameworks like Tailwind CSS</li>
+          <li>Reduced latency through geographic distribution</li>
+          <li>Better user experience with faster load times</li>
+          <li>Improved scalability and reliability</li>
         </ul>
         
-        <h2>WebAssembly (WASM)</h2>
-        <p>WebAssembly is opening new possibilities for web applications, allowing developers to run high-performance code written in languages like Rust, C++, and Go directly in the browser.</p>
+        <h2>Web Assembly (WASM)</h2>
+        <p>WebAssembly is enabling new possibilities for web applications:</p>
+        <ul>
+          <li>Near-native performance in the browser</li>
+          <li>Language diversity beyond JavaScript</li>
+          <li>Complex applications like games and design tools</li>
+        </ul>
         
-        <h2>Progressive Web Apps (PWAs)</h2>
-        <p>PWAs continue to blur the line between web and native applications, offering offline functionality, push notifications, and app-like experiences.</p>
+        <h2>Progressive Web Apps Evolution</h2>
+        <p>PWAs continue to bridge the gap between web and native apps:</p>
+        <ul>
+          <li>Enhanced offline capabilities</li>
+          <li>Better integration with operating systems</li>
+          <li>Improved push notification support</li>
+        </ul>
         
-        <h2>The Jamstack Evolution</h2>
-        <p>The Jamstack architecture is evolving with better tooling, improved developer experience, and new deployment strategies that make it easier to build fast, secure websites.</p>
+        <h2>New Framework Paradigms</h2>
+        <h3>Server Components</h3>
+        <p>React Server Components and similar technologies are changing how we think about rendering and data fetching.</p>
         
-        <h2>Looking Ahead</h2>
-        <p>As we move forward, web development will continue to focus on performance, user experience, and developer productivity. The integration of AI, improved tooling, and new web standards will shape the next generation of web applications.</p>
+        <h3>Island Architecture</h3>
+        <p>Frameworks like Astro are popularizing the concept of island architecture, where only interactive parts of the page are hydrated.</p>
+        
+        <h2>Web3 and Blockchain Integration</h2>
+        <p>Decentralized web technologies are creating new opportunities:</p>
+        <ul>
+          <li>Decentralized hosting and storage</li>
+          <li>Cryptocurrency integration</li>
+          <li>NFT marketplaces and galleries</li>
+        </ul>
+        
+        <h2>Conclusion</h2>
+        <p>The future of web development is exciting and full of possibilities. By staying informed about these trends and experimenting with new technologies, developers can stay ahead of the curve and build the next generation of web applications.</p>
       `
     },
     "optimizing-performance-modern-apps": {
@@ -114,15 +148,15 @@ const BlogPostPage = () => {
       image: "/placeholder.svg",
       author: "Ayomide Famoyegun",
       content: `
-        <h2>The Performance Imperative</h2>
-        <p>In today's fast-paced digital world, performance is not just a nice-to-have—it's essential. Users expect applications to load quickly and respond instantly to their interactions.</p>
+        <h2>Introduction</h2>
+        <p>Performance optimization is crucial for modern web applications. Users expect fast, responsive experiences, and search engines reward well-performing sites. This guide covers essential techniques for optimizing your web applications.</p>
         
         <h2>Core Web Vitals</h2>
-        <p>Google's Core Web Vitals provide key metrics for measuring user experience:</p>
+        <p>Google's Core Web Vitals are essential metrics for user experience:</p>
         <ul>
-          <li><strong>Largest Contentful Paint (LCP):</strong> Measures loading performance</li>
-          <li><strong>First Input Delay (FID):</strong> Measures interactivity</li>
-          <li><strong>Cumulative Layout Shift (CLS):</strong> Measures visual stability</li>
+          <li><strong>Largest Contentful Paint (LCP)</strong> - Loading performance</li>
+          <li><strong>First Input Delay (FID)</strong> - Interactivity</li>
+          <li><strong>Cumulative Layout Shift (CLS)</strong> - Visual stability</li>
         </ul>
         
         <h2>Frontend Optimization Techniques</h2>
@@ -131,27 +165,34 @@ const BlogPostPage = () => {
         
         <h3>Image Optimization</h3>
         <ul>
-          <li>Use modern image formats (WebP, AVIF)</li>
-          <li>Implement lazy loading for images</li>
-          <li>Serve responsive images with srcset</li>
+          <li>Use modern formats like WebP and AVIF</li>
+          <li>Implement responsive images with srcset</li>
+          <li>Lazy load images below the fold</li>
           <li>Optimize image dimensions and compression</li>
         </ul>
         
-        <h3>Bundle Optimization</h3>
+        <h3>CSS and JavaScript Optimization</h3>
         <ul>
-          <li>Tree shaking to eliminate dead code</li>
-          <li>Minimize and compress JavaScript and CSS</li>
-          <li>Use dynamic imports for route-based code splitting</li>
-          <li>Implement proper caching strategies</li>
+          <li>Minify and compress assets</li>
+          <li>Remove unused CSS and JavaScript</li>
+          <li>Use CSS-in-JS efficiently</li>
+          <li>Implement critical CSS inlining</li>
         </ul>
         
-        <h2>Runtime Performance</h2>
-        <h3>React Optimization</h3>
+        <h2>React-Specific Optimizations</h2>
+        <h3>Component Optimization</h3>
         <ul>
           <li>Use React.memo for expensive components</li>
-          <li>Implement useMemo and useCallback for expensive calculations</li>
-          <li>Optimize re-renders with proper state structure</li>
-          <li>Use React DevTools Profiler to identify bottlenecks</li>
+          <li>Optimize useEffect dependencies</li>
+          <li>Implement proper key props for lists</li>
+          <li>Avoid inline functions in JSX</li>
+        </ul>
+        
+        <h3>State Management</h3>
+        <ul>
+          <li>Keep state as close to where it's used as possible</li>
+          <li>Use state reducers for complex state logic</li>
+          <li>Implement proper memoization with useMemo and useCallback</li>
         </ul>
         
         <h3>Virtual Scrolling</h3>
@@ -159,18 +200,42 @@ const BlogPostPage = () => {
         
         <h2>Network Optimization</h2>
         <ul>
-          <li>Implement service workers for caching</li>
+          <li>Implement HTTP/2 and HTTP/3</li>
           <li>Use CDNs for static assets</li>
           <li>Enable gzip/brotli compression</li>
-          <li>Minimize HTTP requests</li>
-          <li>Use HTTP/2 for improved multiplexing</li>
+          <li>Implement proper caching strategies</li>
+          <li>Use service workers for offline functionality</li>
         </ul>
         
-        <h2>Monitoring and Measurement</h2>
-        <p>Use tools like Lighthouse, WebPageTest, and real user monitoring (RUM) to continuously track performance and identify areas for improvement.</p>
+        <h2>Performance Monitoring</h2>
+        <h3>Tools and Metrics</h3>
+        <ul>
+          <li><strong>Lighthouse</strong> - Comprehensive performance audits</li>
+          <li><strong>Web Vitals</strong> - Real user monitoring</li>
+          <li><strong>Chrome DevTools</strong> - Detailed performance profiling</li>
+          <li><strong>WebPageTest</strong> - Network and loading analysis</li>
+        </ul>
+        
+        <h3>Continuous Monitoring</h3>
+        <p>Implement performance monitoring in production to catch regressions early:</p>
+        <ul>
+          <li>Set up performance budgets</li>
+          <li>Monitor Core Web Vitals in real-time</li>
+          <li>Use performance analytics tools</li>
+        </ul>
+        
+        <h2>Advanced Techniques</h2>
+        <h3>Server-Side Rendering (SSR)</h3>
+        <p>SSR can significantly improve initial page load times and SEO, especially for content-heavy applications.</p>
+        
+        <h3>Static Site Generation (SSG)</h3>
+        <p>For content that doesn't change frequently, SSG provides the best performance by pre-rendering pages at build time.</p>
+        
+        <h3>Edge Computing</h3>
+        <p>Deploy your applications closer to users using edge computing platforms for reduced latency.</p>
         
         <h2>Conclusion</h2>
-        <p>Performance optimization is an ongoing process that requires attention to detail and continuous monitoring. By implementing these techniques and staying updated with the latest best practices, you can ensure your applications provide excellent user experiences.</p>
+        <p>Performance optimization is an ongoing process that requires continuous monitoring and improvement. By implementing these techniques and staying updated with best practices, you can ensure your applications provide excellent user experiences across all devices and network conditions.</p>
       `
     }
   };
@@ -182,9 +247,7 @@ const BlogPostPage = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Blog Post Not Found</h1>
-          <Link to="/">
-            <Button>Go Home</Button>
-          </Link>
+          <p className="text-muted-foreground">The blog post you're looking for doesn't exist.</p>
         </div>
       </div>
     );

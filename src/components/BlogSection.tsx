@@ -39,8 +39,11 @@ const BlogSection = () => {
     }
   ];
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToBlog = () => {
+    const blogSection = document.getElementById('blog');
+    if (blogSection) {
+      blogSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -102,7 +105,7 @@ const BlogSection = () => {
           <Button 
             variant="outline" 
             size="lg" 
-            onClick={scrollToTop}
+            onClick={scrollToBlog}
             className="hover:bg-primary hover:text-primary-foreground transition-colors"
           >
             View All Posts

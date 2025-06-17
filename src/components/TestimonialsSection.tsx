@@ -143,29 +143,31 @@ const TestimonialsSection = () => {
             >
               <Card className="p-4 sm:p-6 h-full hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="space-y-3 sm:space-y-4">
-                  <div className="flex justify-between items-start gap-2">
-                    <div className="flex items-center space-x-3 min-w-0 flex-1">
-                      <Avatar className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0">
-                        <AvatarImage 
-                          src={testimonial.image} 
-                          alt={testimonial.name}
-                          className="object-cover"
-                        />
-                        <AvatarFallback className="text-xs">
-                          {testimonial.name.split(' ').map(n => n[0]).join('')}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="min-w-0 flex-1">
-                        <div className="font-semibold text-sm sm:text-base truncate">{testimonial.name}</div>
-                        <div className="text-xs sm:text-sm text-muted-foreground line-clamp-2">
-                          {testimonial.role}
+                  <div className="flex flex-col space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3 flex-1 min-w-0">
+                        <Avatar className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0">
+                          <AvatarImage 
+                            src={testimonial.image} 
+                            alt={testimonial.name}
+                            className="object-cover"
+                          />
+                          <AvatarFallback className="text-xs">
+                            {testimonial.name.split(' ').map(n => n[0]).join('')}
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="min-w-0 flex-1">
+                          <div className="font-semibold text-sm sm:text-base truncate">{testimonial.name}</div>
+                          <div className="text-xs sm:text-sm text-muted-foreground line-clamp-2">
+                            {testimonial.role}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="flex space-x-0.5 flex-shrink-0 ml-2">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
-                      ))}
+                      <div className="flex space-x-0.5 flex-shrink-0">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
                     </div>
                   </div>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
