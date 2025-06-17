@@ -30,7 +30,7 @@ const BlogSection = () => {
     {
       id: 3,
       title: "Optimizing Performance in Modern Apps",
-      description: "Techniques for improving load times and user experience in contemporary web applications.",
+      description: "Essential techniques and strategies for improving load times, user experience, and overall performance in contemporary web applications.",
       date: "2024-01-05",
       readTime: "10 min read",
       category: "Performance",
@@ -38,6 +38,10 @@ const BlogSection = () => {
       slug: "optimizing-performance-modern-apps"
     }
   ];
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <section id="blog" className="py-20 relative">
@@ -95,7 +99,12 @@ const BlogSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            onClick={scrollToTop}
+            className="hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
             View All Posts
           </Button>
         </div>

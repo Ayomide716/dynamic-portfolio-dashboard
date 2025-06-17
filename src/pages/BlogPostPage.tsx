@@ -107,7 +107,7 @@ const BlogPostPage = () => {
     "optimizing-performance-modern-apps": {
       id: 3,
       title: "Optimizing Performance in Modern Apps",
-      description: "Techniques for improving load times and user experience in contemporary web applications.",
+      description: "Essential techniques and strategies for improving load times, user experience, and overall performance in contemporary web applications.",
       date: "2024-01-05",
       readTime: "10 min read",
       category: "Performance",
@@ -127,16 +127,7 @@ const BlogPostPage = () => {
         
         <h2>Frontend Optimization Techniques</h2>
         <h3>Code Splitting</h3>
-        <p>Break your application into smaller chunks that can be loaded on demand:</p>
-        <pre><code>const LazyComponent = React.lazy(() => import('./LazyComponent'));
-
-function App() {
-  return (
-    &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
-      &lt;LazyComponent /&gt;
-    &lt;/Suspense&gt;
-  );
-}</code></pre>
+        <p>Break your application into smaller chunks that can be loaded on demand. This reduces initial bundle size and improves loading times.</p>
         
         <h3>Image Optimization</h3>
         <ul>
@@ -164,22 +155,7 @@ function App() {
         </ul>
         
         <h3>Virtual Scrolling</h3>
-        <p>For large datasets, implement virtual scrolling to render only visible items:</p>
-        <pre><code>import { FixedSizeList as List } from 'react-window';
-
-const VirtualizedList = ({ items }) => (
-  &lt;List
-    height={600}
-    itemCount={items.length}
-    itemSize={50}
-  &gt;
-    {({ index, style }) => (
-      &lt;div style={style}&gt;
-        {items[index]}
-      &lt;/div&gt;
-    )}
-  &lt;/List&gt;
-);</code></pre>
+        <p>For large datasets, implement virtual scrolling to render only visible items, significantly improving performance for long lists.</p>
         
         <h2>Network Optimization</h2>
         <ul>

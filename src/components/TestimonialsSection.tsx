@@ -143,9 +143,9 @@ const TestimonialsSection = () => {
             >
               <Card className="p-4 sm:p-6 h-full hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="space-y-3 sm:space-y-4">
-                  <div className="flex justify-between items-start">
-                    <div className="flex items-center space-x-3">
-                      <Avatar className="w-10 h-10 sm:w-12 sm:h-12">
+                  <div className="flex justify-between items-start gap-2">
+                    <div className="flex items-center space-x-3 min-w-0 flex-1">
+                      <Avatar className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0">
                         <AvatarImage 
                           src={testimonial.image} 
                           alt={testimonial.name}
@@ -162,7 +162,7 @@ const TestimonialsSection = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="flex space-x-1 flex-shrink-0">
+                    <div className="flex space-x-0.5 flex-shrink-0 ml-2">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
                       ))}
