@@ -1,15 +1,14 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Eye } from "lucide-react";
-import { Link } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const projects = {
   "project-one": {
@@ -131,29 +130,42 @@ const projects = {
 
 const ProjectPage = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const [showPreview, setShowPreview] = useState(false);
   const project = projects[slug as keyof typeof projects];
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleBackToProjects = () => {
+    navigate("/#projects");
+    // Small delay to ensure navigation completes before scrolling
+    setTimeout(() => {
+      const projectsSection = document.getElementById("projects");
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
 
   if (!project) {
     return (
       <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-2xl font-bold">Project not found</h1>
-        <Link to="/" className="mt-4 inline-block">
-          <Button>
-            <ArrowLeft className="mr-2" /> Back to Home
-          </Button>
-        </Link>
+        <Button onClick={handleBackToProjects} className="mt-4">
+          <ArrowLeft className="mr-2" /> Back to Home
+        </Button>
       </div>
     );
   }
 
   return (
     <div className="container mx-auto px-4 py-20">
-      <Link to="/">
-        <Button variant="ghost" className="mb-8">
-          <ArrowLeft className="mr-2" /> Back to Projects
-        </Button>
-      </Link>
+      <Button variant="ghost" className="mb-8" onClick={handleBackToProjects}>
+        <ArrowLeft className="mr-2" /> Back to Projects
+      </Button>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
