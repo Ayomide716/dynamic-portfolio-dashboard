@@ -1,11 +1,27 @@
-
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import BlogPost from "@/components/BlogPost";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleBackToBlog = () => {
+    navigate("/#blog");
+    // Small delay to ensure navigation completes before scrolling
+    setTimeout(() => {
+      const blogSection = document.getElementById("blog");
+      if (blogSection) {
+        blogSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
 
   const blogPosts = {
     "building-scalable-react-applications": {
@@ -250,17 +266,15 @@ const BlogPostPage = () => {
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Blog Post Not Found</h1>
           <p className="text-muted-foreground">The blog post you're looking for doesn't exist.</p>
-          <Link to="/#blog">
-            <Button variant="outline" className="mt-4">
-              Back to Blog
-            </Button>
-          </Link>
+          <Button variant="outline" className="mt-4" onClick={handleBackToBlog}>
+            Back to Blog
+          </Button>
         </div>
       </div>
     );
   }
 
-  return <BlogPost post={post} />;
+  return <BlogPost post={post} onBackToBlog={handleBackToBlog} />;
 };
 
 export default BlogPostPage;

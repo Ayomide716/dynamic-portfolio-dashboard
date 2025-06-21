@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,9 +16,10 @@ interface BlogPostProps {
     image: string;
     author: string;
   };
+  onBackToBlog?: () => void;
 }
 
-const BlogPost = ({ post }: BlogPostProps) => {
+const BlogPost = ({ post, onBackToBlog }: BlogPostProps) => {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-24">
@@ -28,12 +28,10 @@ const BlogPost = ({ post }: BlogPostProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Link to="/#blog">
-            <Button variant="ghost" className="mb-6">
-              <ArrowLeft size={16} className="mr-2" />
-              Back to Blog
-            </Button>
-          </Link>
+          <Button variant="ghost" className="mb-6" onClick={onBackToBlog}>
+            <ArrowLeft size={16} className="mr-2" />
+            Back to Blog
+          </Button>
 
           <div className="max-w-4xl mx-auto">
             <div className="mb-8">

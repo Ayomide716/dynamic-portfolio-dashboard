@@ -76,7 +76,7 @@ const Index = () => {
       <footer className="mt-20 py-8 border-t border-slate-100/20 relative z-10">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 Ayomide Famoyegun. All rights reserved.
+            © 2025 Ayomide Famoyegun. All rights reserved.
           </p>
           <div className="flex gap-4">
             <SocialLink href="https://github.com/Ayomide716" icon={<Github size={20} />} />
