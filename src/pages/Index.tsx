@@ -16,6 +16,10 @@ import StatsSection from "@/components/StatsSection";
 import ModernNav from "@/components/ModernNav";
 import BlogSection from "@/components/BlogSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import WaveRipple from "@/components/WaveRipple";
+import CursorTrail from "@/components/CursorTrail";
+import ParticleBurst from "@/components/ParticleBurst";
+import MagneticEffect from "@/components/MagneticEffect";
 
 const Index = () => {
   // SEO and Performance optimizations
@@ -60,6 +64,10 @@ const Index = () => {
       <Background3D />
       <AnimatedParticles />
       <FloatingElements />
+      <WaveRipple />
+      <CursorTrail />
+      <ParticleBurst />
+      <MagneticEffect />
       
       <ModernNav />
 

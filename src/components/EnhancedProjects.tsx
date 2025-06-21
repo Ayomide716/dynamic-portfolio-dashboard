@@ -1,9 +1,8 @@
-
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ChevronRight, Eye, ExternalLink, Github } from "lucide-react";
+import { ChevronRight, Eye, Github, ExternalLink } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -14,49 +13,64 @@ import { useState } from "react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with modern UI and seamless payment integration.",
-    images: [
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=800&q=80"
-    ],
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    slug: "ecommerce-platform",
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
+    title: "Project One",
+    description: "A beautiful web application built with React and TailwindCSS.",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "TailwindCSS", "TypeScript"],
+    slug: "project-one",
+    previewUrl: "https://react-tailwind-demo.vercel.app",
+    githubUrl: "https://github.com/example/project-one",
+    externalUrl: "https://example.com/project-one",
+    featured: true,
   },
   {
-    title: "Analytics Dashboard",
-    description: "Real-time analytics dashboard with interactive charts and data visualization.",
-    images: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80"
-    ],
-    tags: ["Vue.js", "D3.js", "Python", "PostgreSQL"],
-    slug: "analytics-dashboard",
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
+    title: "Project Two",
+    description: "An elegant dashboard with real-time data visualization.",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    tags: ["Next.js", "Supabase", "Chart.js"],
+    slug: "project-two",
+    previewUrl: "https://nextjs-dashboard-demo.vercel.app",
+    githubUrl: "https://github.com/example/project-two",
+    externalUrl: "https://example.com/project-two",
+    featured: false,
   },
   {
-    title: "Mobile Banking App",
-    description: "Secure mobile banking application with biometric authentication and real-time transactions.",
-    images: [
-      "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1511376777868-611b54f68947?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80"
-    ],
-    tags: ["React Native", "Firebase", "Node.js", "JWT"],
-    slug: "mobile-banking",
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
+    title: "Project Three",
+    description: "A mobile-first e-commerce platform with seamless UX.",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
+    tags: ["React Native", "Redux", "Node.js"],
+    slug: "project-three",
+    previewUrl: "https://react-native-shop.vercel.app",
+    githubUrl: "https://github.com/example/project-three",
+    externalUrl: "https://example.com/project-three",
+    featured: true,
+  },
+  {
+    title: "Project Four",
+    description: "An AI-powered content management system with advanced analytics.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    tags: ["AI/ML", "Python", "React"],
+    slug: "project-four",
+    previewUrl: "https://ai-cms-demo.vercel.app",
+    githubUrl: "https://github.com/example/project-four",
+    externalUrl: "https://example.com/project-four",
+    featured: false,
+  },
+  {
+    title: "Project Five",
+    description: "A modern social media platform with real-time messaging.",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "Firebase", "WebSocket"],
+    slug: "project-five",
+    previewUrl: "https://social-media-demo.vercel.app",
+    githubUrl: "https://github.com/example/project-five",
+    externalUrl: "https://example.com/project-five",
+    featured: false,
   }
 ];
 
 const EnhancedProjects = () => {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   return (
     <section id="projects" className="py-20 relative z-10">
@@ -68,7 +82,7 @@ const EnhancedProjects = () => {
         className="text-center mb-12"
       >
         <h2 className="text-3xl font-bold">Featured Projects</h2>
-        <p className="mt-4 text-muted-foreground">Some of my recent work with detailed galleries</p>
+        <p className="mt-4 text-muted-foreground">Some of my recent work</p>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -79,62 +93,61 @@ const EnhancedProjects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            whileHover={{ y: -10 }}
-            className="group"
+            data-magnetic
+            className="transition-all duration-300 ease-out"
           >
-            <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 bg-card/50 backdrop-blur-sm">
+            <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-background/80 backdrop-blur-sm border-2 hover:border-primary/20">
               <div className="relative overflow-hidden">
-                <motion.img
-                  src={project.images[0]}
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                  whileHover={{ scale: 1.05 }}
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => {
-                      setSelectedProject(project);
-                      setCurrentImageIndex(0);
-                    }}
-                    className="p-2 bg-white/90 rounded-full shadow-lg"
-                  >
-                    <Eye className="w-4 h-4" />
-                  </motion.button>
+                  <Button size="sm" variant="secondary" className="h-8 w-8 p-0">
+                    <Github size={14} />
+                  </Button>
+                  <Button size="sm" variant="secondary" className="h-8 w-8 p-0">
+                    <ExternalLink size={14} />
+                  </Button>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 text-sm">{project.description}</p>
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
+                    {project.featured ? "Featured" : "Project"}
+                  </span>
+                </div>
+                <p className="text-muted-foreground mb-4 line-clamp-2">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <motion.span
+                    <span
                       key={tag}
-                      whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                      className="px-2 py-1 bg-secondary text-secondary-foreground rounded-md text-xs hover:bg-primary/10 hover:text-primary transition-colors"
                     >
                       {tag}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
                 <div className="flex gap-2">
                   <Link to={`/projects/${project.slug}`} className="flex-1">
                     <Button className="w-full group/btn">
                       View Details 
-                      <ChevronRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                      <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </Button>
                   </Link>
-                  <Button variant="outline" size="icon" asChild>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4" />
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="icon" asChild>
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                  <Button
+                    variant="outline"
+                    onClick={() => setPreviewUrl(project.previewUrl)}
+                    className="hover:bg-primary hover:text-primary-foreground transition-colors"
+                  >
+                    <Eye size={16} />
                   </Button>
                 </div>
               </div>
@@ -143,54 +156,17 @@ const EnhancedProjects = () => {
         ))}
       </div>
 
-      {/* Enhanced Project Gallery Dialog with proper scrolling */}
-      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] flex flex-col">
+      <Dialog open={!!previewUrl} onOpenChange={() => setPreviewUrl(null)}>
+        <DialogContent className="max-w-6xl h-[80vh]">
           <DialogHeader>
-            <DialogTitle>{selectedProject?.title} - Gallery</DialogTitle>
+            <DialogTitle>Project Preview</DialogTitle>
           </DialogHeader>
-          {selectedProject && (
-            <div className="flex flex-col min-h-0 flex-1">
-              <div className="flex-shrink-0 relative mb-4">
-                <motion.img
-                  key={currentImageIndex}
-                  src={selectedProject.images[currentImageIndex]}
-                  alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
-                  className="w-full h-[400px] object-cover rounded-lg"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2">
-                  {selectedProject.images.map((_, index) => (
-                    <motion.button
-                      key={index}
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.9 }}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`w-3 h-3 rounded-full transition-colors ${
-                        index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className="flex gap-2 overflow-x-auto pb-2">
-                {selectedProject.images.map((image, index) => (
-                  <motion.img
-                    key={index}
-                    src={image}
-                    alt={`Thumbnail ${index + 1}`}
-                    className={`w-20 h-20 flex-shrink-0 object-cover rounded cursor-pointer border-2 transition-all ${
-                      index === currentImageIndex ? 'border-primary' : 'border-transparent'
-                    }`}
-                    onClick={() => setCurrentImageIndex(index)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  />
-                ))}
-              </div>
-            </div>
+          {previewUrl && (
+            <iframe
+              src={previewUrl}
+              className="w-full h-full border-none"
+              title="Project Preview"
+            />
           )}
         </DialogContent>
       </Dialog>
