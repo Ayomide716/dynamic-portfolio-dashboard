@@ -20,6 +20,9 @@ import WaveRipple from "@/components/WaveRipple";
 import CursorTrail from "@/components/CursorTrail";
 import ParticleBurst from "@/components/ParticleBurst";
 import MagneticEffect from "@/components/MagneticEffect";
+import ParallaxBackground from "@/components/ParallaxBackground";
+import MorphingShapes from "@/components/MorphingShapes";
+import GradientAnimations from "@/components/GradientAnimations";
 
 const Index = () => {
   // SEO and Performance optimizations
@@ -68,6 +71,9 @@ const Index = () => {
       <CursorTrail />
       <ParticleBurst />
       <MagneticEffect />
+      <ParallaxBackground />
+      <MorphingShapes />
+      <GradientAnimations />
       
       <ModernNav />
 
