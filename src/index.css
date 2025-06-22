@@ -38,16 +38,6 @@
     color: hsl(var(--foreground));
     font-feature-settings: "rlig" 1, "calt" 1;
     font-family: 'Inter', sans-serif;
-    cursor: none; /* Hide default cursor for custom cursor trail */
-  }
-
-  /* Custom cursor */
-  * {
-    cursor: none;
-  }
-
-  button, a, [role="button"] {
-    cursor: pointer;
   }
 }
 
@@ -120,11 +110,6 @@
   .hover-lift:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Magnetic effect preparation */
-  [data-magnetic] {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Button pulse effect */
@@ -231,11 +216,6 @@ html {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-  
-  /* Re-enable cursor for reduced motion users */
-  body, * {
-    cursor: auto !important;
   }
 }
 
