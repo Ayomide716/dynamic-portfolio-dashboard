@@ -80,7 +80,10 @@ const EnhancedProjects = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
           >
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Card 
+              className="overflow-hidden hover:shadow-lg transition-all duration-300 will-change-transform"
+              data-magnetic
+            >
               <img
                 src={project.image}
                 alt={project.title}
