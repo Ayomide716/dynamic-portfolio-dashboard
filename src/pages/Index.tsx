@@ -1,10 +1,10 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Hero from "@/components/Hero";
+import EnhancedHero from "@/components/EnhancedHero";
 import EnhancedProjects from "@/components/EnhancedProjects";
 import InteractiveSkills from "@/components/InteractiveSkills";
 import Contact from "@/components/Contact";
@@ -23,6 +23,10 @@ import MagneticEffect from "@/components/MagneticEffect";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import MorphingShapes from "@/components/MorphingShapes";
 import GradientAnimations from "@/components/GradientAnimations";
+import SoundEffects from "@/components/SoundEffects";
+import InteractiveTimeline from "@/components/InteractiveTimeline";
+import CardStack3D from "@/components/CardStack3D";
+import GestureControls from "@/components/GestureControls";
 
 const Index = () => {
   // SEO and Performance optimizations
@@ -74,14 +78,18 @@ const Index = () => {
       <ParallaxBackground />
       <MorphingShapes />
       <GradientAnimations />
+      <SoundEffects />
+      <GestureControls />
       
       <ModernNav />
 
       <main className="container mx-auto px-4 pt-24 relative z-10">
-        <Hero />
+        <EnhancedHero />
         <StatsSection />
         <EnhancedProjects />
+        <CardStack3D />
         <InteractiveSkills />
+        <InteractiveTimeline />
         <BlogSection />
         <TestimonialsSection />
         <Contact />

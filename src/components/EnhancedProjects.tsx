@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -59,19 +60,19 @@ const EnhancedProjects = () => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   return (
-    <section id="projects" className="py-20 relative z-10">
+    <section id="projects" className="py-10 sm:py-16 lg:py-20 relative z-10 px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="text-center mb-12"
+        className="text-center mb-8 sm:mb-12"
       >
-        <h2 className="text-3xl font-bold">Featured Projects</h2>
-        <p className="mt-4 text-muted-foreground">Some of my recent work</p>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Featured Projects</h2>
+        <p className="mt-2 sm:mt-4 text-sm sm:text-base text-muted-foreground">Some of my recent work</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -79,24 +80,25 @@ const EnhancedProjects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
+            className="w-full"
           >
             <Card 
-              className="overflow-hidden hover:shadow-lg transition-all duration-300 will-change-transform hover:shadow-2xl"
+              className="overflow-hidden hover:shadow-lg transition-all duration-300 will-change-transform hover:shadow-2xl h-full flex flex-col"
               data-magnetic
             >
               <EnhancedImageHover
                 src={project.image}
                 alt={project.title}
-                className="w-full h-48"
+                className="w-full h-40 sm:h-48 lg:h-52 flex-shrink-0"
               />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p className="mt-2 text-muted-foreground">{project.description}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
+              <div className="p-4 sm:p-6 flex flex-col flex-grow">
+                <h3 className="text-lg sm:text-xl font-semibold line-clamp-2">{project.title}</h3>
+                <p className="mt-2 text-sm sm:text-base text-muted-foreground line-clamp-3 flex-grow">{project.description}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                   {project.tags.map((tag) => (
                     <motion.span
                       key={tag}
-                      className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"
+                      className="px-2 sm:px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs sm:text-sm"
                       whileHover={{ scale: 1.05, backgroundColor: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }}
                       transition={{ duration: 0.2 }}
                     >
@@ -104,19 +106,19 @@ const EnhancedProjects = () => {
                     </motion.span>
                   ))}
                 </div>
-                <div className="mt-4 flex gap-2">
+                <div className="mt-4 flex flex-col sm:flex-row gap-2">
                   <Link to={`/projects/${project.slug}`} className="flex-1">
-                    <Button className="w-full group">
+                    <Button className="w-full group text-sm sm:text-base">
                       View Details 
-                      <ChevronRight className="ml-2 transition-transform group-hover:translate-x-1" />
+                      <ChevronRight className="ml-1 sm:ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
                   <Button
                     variant="outline"
                     onClick={() => setPreviewUrl(project.previewUrl)}
-                    className="group"
+                    className="group w-full sm:w-auto text-sm sm:text-base"
                   >
-                    <Eye className="mr-2 transition-transform group-hover:scale-110" /> Preview
+                    <Eye className="mr-1 sm:mr-2 w-4 h-4 transition-transform group-hover:scale-110" /> Preview
                   </Button>
                 </div>
               </div>
@@ -126,7 +128,7 @@ const EnhancedProjects = () => {
       </div>
 
       <Dialog open={!!previewUrl} onOpenChange={() => setPreviewUrl(null)}>
-        <DialogContent className="max-w-6xl h-[80vh]">
+        <DialogContent className="max-w-6xl h-[80vh] w-[95vw]">
           <DialogHeader>
             <DialogTitle>Project Preview</DialogTitle>
           </DialogHeader>
