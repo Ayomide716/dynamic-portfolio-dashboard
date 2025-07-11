@@ -41,7 +41,7 @@ const InteractiveSkills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 relative z-10">
+    <section id="skills" className="py-12 sm:py-16 md:py-20 relative z-10">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -49,11 +49,11 @@ const InteractiveSkills = () => {
         viewport={{ once: true }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl font-bold">Skills & Expertise</h2>
-        <p className="mt-4 text-muted-foreground">Technologies and tools I work with - click to learn more</p>
+        <h2 className="text-2xl sm:text-3xl font-bold">Skills & Expertise</h2>
+        <p className="mt-4 text-muted-foreground px-4">Technologies and tools I work with - click to learn more</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {skills.map((category, index) => (
           <motion.div
             key={index}
@@ -61,7 +61,7 @@ const InteractiveSkills = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="relative h-64 cursor-pointer"
+            className="relative h-48 sm:h-56 md:h-64 cursor-pointer"
             style={{ perspective: "1000px" }}
             onClick={() => toggleCard(index)}
           >

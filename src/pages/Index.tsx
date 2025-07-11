@@ -83,7 +83,7 @@ const Index = () => {
       
       <ModernNav />
 
-      <main className="container mx-auto px-4 pt-24 relative z-10">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 relative z-10">
         <Hero />
         <StatsSection />
         <EnhancedProjects />
@@ -95,12 +95,12 @@ const Index = () => {
         <Contact />
       </main>
 
-      <footer className="mt-20 py-8 border-t border-slate-100/20 relative z-10">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <p className="text-sm text-muted-foreground">
+      <footer className="mt-12 sm:mt-16 md:mt-20 py-6 sm:py-8 border-t border-slate-100/20 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+          <p className="text-sm text-muted-foreground text-center sm:text-left">
             © 2025 Ayomide Famoyegun. All rights reserved.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-3 sm:gap-4">
             <SocialLink href="https://github.com/Ayomide716" icon={<Github size={20} />} />
             <SocialLink href="https://linkedin.com" icon={<Linkedin size={20} />} />
             <SocialLink href="mailto:ayomidefamoyegun1@gmail.com" icon={<Mail size={20} />} />

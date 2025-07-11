@@ -5,18 +5,18 @@ import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden">
+    <section className="py-10 sm:py-16 md:py-24 lg:py-32 relative overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-3xl mx-auto text-center relative z-10"
+        className="max-w-3xl mx-auto text-center relative z-10 px-4"
       >
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-primary"
+          className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-6 sm:mb-8 rounded-full overflow-hidden border-4 border-primary"
         >
           <img
             src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80"
@@ -29,7 +29,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-4xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600"
         >
           <TypeAnimation
             sequence={[
@@ -50,7 +50,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-6 text-xl text-muted-foreground"
+          className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground px-4"
         >
           Frontend developer specializing in building beautiful, functional, and user-centered digital experiences.
         </motion.p>
@@ -59,7 +59,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
+          className="mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4"
         >
           <Button size="lg" className="group" asChild>
             <a href="#projects">
@@ -76,7 +76,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="mt-8 flex justify-center gap-4"
+          className="mt-6 sm:mt-8 flex justify-center gap-3 sm:gap-4"
         >
           {[
             { icon: Github, href: "https://github.com" },

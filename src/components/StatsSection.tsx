@@ -11,7 +11,7 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="py-20 relative z-10">
+    <section className="py-12 sm:py-16 md:py-20 relative z-10">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -19,11 +19,11 @@ const StatsSection = () => {
         viewport={{ once: true }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl font-bold">Achievements</h2>
-        <p className="mt-4 text-muted-foreground">Numbers that speak for themselves</p>
+        <h2 className="text-2xl sm:text-3xl font-bold">Achievements</h2>
+        <p className="mt-4 text-muted-foreground px-4">Numbers that speak for themselves</p>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
         {stats.map((stat, index) => (
           <motion.div
             key={index}

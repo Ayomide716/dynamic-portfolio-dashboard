@@ -8,7 +8,7 @@ import { Mail, MessageSquare, Send } from "lucide-react";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-12 sm:py-16 md:py-20">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -16,8 +16,8 @@ const Contact = () => {
         viewport={{ once: true }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl font-bold">Get in Touch</h2>
-        <p className="mt-4 text-muted-foreground">Let's discuss your next project</p>
+        <h2 className="text-2xl sm:text-3xl font-bold">Get in Touch</h2>
+        <p className="mt-4 text-muted-foreground px-4">Let's discuss your next project</p>
       </motion.div>
 
       <motion.div
@@ -25,7 +25,7 @@ const Contact = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="max-w-xl mx-auto"
+        className="max-w-xl mx-auto px-4"
       >
         <Card className="p-6">
           <form className="space-y-6">
