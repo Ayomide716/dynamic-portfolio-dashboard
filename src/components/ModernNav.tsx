@@ -44,19 +44,20 @@ const ModernNav = () => {
 
   return (
     <nav className="fixed top-0 w-full z-50 backdrop-blur-lg bg-background/80 border-b border-border">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
+      <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
+        <div className="flex justify-between items-center min-w-0">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent"
+            className="text-sm sm:text-lg md:text-xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent truncate"
           >
-            Ayomide's Portfolio
+            <span className="hidden sm:inline">Ayomide's Portfolio</span>
+            <span className="sm:hidden">Ayomide</span>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6">
             <NavigationMenu>
               <NavigationMenuList>
                 {navItems.map((item) => (
@@ -83,7 +84,7 @@ const ModernNav = () => {
             </NavigationMenu>
 
             {/* Social Links */}
-            <div className="flex gap-2">
+            <div className="hidden lg:flex gap-2">
               <Button variant="ghost" size="icon" asChild>
                 <a href="https://github.com/Ayomide716" target="_blank" rel="noopener noreferrer">
                   <Github size={18} />
@@ -106,7 +107,7 @@ const ModernNav = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="lg:hidden flex-shrink-0"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -119,7 +120,7 @@ const ModernNav = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 p-4 bg-background border border-border rounded-lg"
+            className="lg:hidden mt-4 p-4 bg-background border border-border rounded-lg"
           >
             {navItems.map((item) => (
               <a
