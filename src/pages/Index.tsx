@@ -84,7 +84,7 @@ const Index = () => {
       <ModernNav />
 
       <main className="container mx-auto px-4 pt-24 relative z-10">
-        <EnhancedHero />
+        <Hero />
         <StatsSection />
         <EnhancedProjects />
         <CardStack3D />
