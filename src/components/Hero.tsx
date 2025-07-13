@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Github, Linkedin, Mail } from "lucide-react";
 import { TypeAnimation } from 'react-type-animation';
+import MorphingText from "./MorphingText";
 
 const Hero = () => {
   return (
@@ -29,20 +30,18 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight"
         >
-          <TypeAnimation
-            sequence={[
-              'Creating Digital Experience',
-              2000,
-              'Building Amazing Apps',
-              2000,
-              'Designing Beautiful UIs',
-              2000,
+          <MorphingText
+            words={[
+              "Creating Digital Magic",
+              "Building Future Apps", 
+              "Designing Epic UIs",
+              "Crafting Code Art",
+              "Innovating Web Tech"
             ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold"
+            duration={2500}
           />
         </motion.h1>
 
